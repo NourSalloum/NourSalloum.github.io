@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Nour Salloum - AI Engineer & Mobile Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,6 @@
             --text-primary: #e8eaf2;
             --text-secondary: #9ca3c8;
             --gradient-1: linear-gradient(135deg, #4a9eff 0%, #b794f6 100%);
-            --gradient-2: linear-gradient(135deg, #00d4ff 0%, #4a9eff 100%);
         }
 
         * {
@@ -34,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* Background Animation */
         body::before {
             content: '';
             position: fixed;
@@ -57,15 +55,14 @@
             z-index: 1;
         }
 
-        /* Header / Navigation */
+        /* Header */
         header {
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             position: sticky;
             top: 0;
-            background: rgba(10, 14, 39, 0.9);
+            background: rgba(10, 14, 39, 0.95);
             backdrop-filter: blur(10px);
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         nav {
@@ -76,7 +73,7 @@
 
         .logo {
             font-family: 'DM Serif Display', serif;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 400;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -96,26 +93,22 @@
             font-weight: 400;
             font-size: 0.95rem;
             transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
             color: var(--text-primary);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        /* Mobile menu button - hidden on desktop */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
         }
 
         /* Hero Section */
@@ -126,7 +119,7 @@
 
         .hero-title {
             font-family: 'DM Serif Display', serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2rem, 8vw, 5rem);
             font-weight: 400;
             margin-bottom: 1.5rem;
             line-height: 1.2;
@@ -134,7 +127,7 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-size: clamp(1rem, 4vw, 1.8rem);
             color: var(--text-secondary);
             margin-bottom: 2rem;
             font-weight: 300;
@@ -151,7 +144,7 @@
         .hero-description {
             max-width: 700px;
             margin: 0 auto 3rem;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
             color: var(--text-secondary);
             line-height: 1.8;
             animation: fadeInUp 0.8s ease-out 0.4s backwards;
@@ -199,14 +192,13 @@
             transform: translateY(-2px);
         }
 
-        /* Section Styles */
         section {
             padding: 6rem 0;
         }
 
         .section-title {
             font-family: 'DM Serif Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.8rem, 5vw, 3rem);
             margin-bottom: 1rem;
             text-align: center;
         }
@@ -215,10 +207,9 @@
             text-align: center;
             color: var(--text-secondary);
             margin-bottom: 4rem;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
         }
 
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -240,7 +231,7 @@
         }
 
         .skill-card h3 {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
             margin-bottom: 1rem;
             color: var(--accent-blue);
         }
@@ -260,7 +251,6 @@
             color: var(--text-secondary);
         }
 
-        /* Projects Section */
         .projects-grid {
             display: grid;
             gap: 3rem;
@@ -281,7 +271,7 @@
         }
 
         .project-card h3 {
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
             margin-bottom: 1rem;
             font-family: 'DM Serif Display', serif;
         }
@@ -290,6 +280,7 @@
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.8;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .project-tech {
@@ -308,7 +299,6 @@
             color: var(--accent-purple);
         }
 
-        /* Experience Section */
         .experience-timeline {
             max-width: 800px;
             margin: 0 auto;
@@ -329,13 +319,13 @@
         }
 
         .timeline-item h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             margin-bottom: 0.5rem;
         }
 
         .timeline-meta {
             color: var(--accent-cyan);
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
             margin-bottom: 1rem;
             font-weight: 600;
         }
@@ -347,9 +337,9 @@
 
         .timeline-item li {
             margin-bottom: 0.75rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
-        /* Contact Section */
         .contact-content {
             max-width: 600px;
             margin: 0 auto;
@@ -360,6 +350,7 @@
             display: flex;
             gap: 1.5rem;
             justify-content: center;
+            flex-wrap: wrap;
             margin-top: 2rem;
         }
 
@@ -374,7 +365,6 @@
             justify-content: center;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
@@ -385,15 +375,14 @@
             box-shadow: 0 5px 20px rgba(74, 158, 255, 0.3);
         }
 
-        /* Footer */
         footer {
             padding: 3rem 0;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-secondary);
+            font-size: clamp(0.85rem, 2vw, 1rem);
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -405,14 +394,61 @@
             }
         }
 
-        /* Responsive */
+        /* Mobile styles */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            /* Show mobile menu button */
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            /* Hide nav links by default on mobile */
             .nav-links {
-                gap: 1.5rem;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(21, 26, 61, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease, padding 0.3s ease;
+                pointer-events: none;
+            }
+
+            /* Show nav links when menu is open */
+            .nav-links.active {
+                max-height: 400px;
+                padding: 1rem 0;
+                pointer-events: auto;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .nav-links a:hover {
+                background: rgba(74, 158, 255, 0.1);
+            }
+
+            .logo {
+                font-size: 1.5rem;
             }
 
             .hero {
-                padding: 4rem 0 3rem;
+                padding: 5rem 0 3rem;
             }
 
             section {
@@ -421,12 +457,37 @@
 
             .cta-buttons {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
             }
 
             .btn {
                 width: 100%;
-                max-width: 300px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card,
+            .project-card,
+            .timeline-item {
+                padding: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .skill-card,
+            .project-card,
+            .timeline-item {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -436,7 +497,8 @@
         <div class="container">
             <nav>
                 <div class="logo">NS</div>
-                <ul class="nav-links">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -448,7 +510,6 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">Hi, I'm <span class="gradient-text">Nour Salloum</span></h1>
@@ -464,12 +525,11 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <p class="section-subtitle">Building the future, one intelligent application at a time</p>
-                <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.9;">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-secondary); font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.9;">
                     <p>
                         I'm a Mobile Application Developer and AI Engineer with a passion for creating innovative solutions 
                         that solve real-world problems. My journey spans from building intuitive mobile applications with 
@@ -477,14 +537,13 @@
                     </p>
                     <br>
                     <p>
-                        With hands-on experience in both mobile and AI development, I bring a unique perspective to building 
-                        intelligent applications that are not only powerful but also user-friendly and accessible.
+                        Combining professional mobile development experience with intensive AI training and project work, 
+                        I'm passionate about building intelligent applications that are both powerful and user-friendly.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills">
             <div class="container">
                 <h2 class="section-title">Skills & Technologies</h2>
@@ -538,7 +597,6 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects">
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
@@ -646,7 +704,6 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience">
             <div class="container">
                 <h2 class="section-title">Experience & Education</h2>
@@ -697,13 +754,12 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
             <div class="container">
                 <h2 class="section-title">Let's Connect</h2>
                 <p class="section-subtitle">I'm always open to new opportunities and collaborations</p>
                 <div class="contact-content">
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                    <p style="font-size: clamp(0.95rem, 2vw, 1.1rem); color: var(--text-secondary); margin-bottom: 2rem;">
                         Whether you have a project in mind, want to discuss AI innovations, or just want to say hi, 
                         feel free to reach out!
                     </p>
@@ -718,7 +774,7 @@
                                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                             </svg>
                         </a>
-                        <a href="mailto:noursalloum789@gmail.com" class="social-link" title="Email">
+                        <a href="/cdn-cgi/l/email-protection#ddb3b2a8afaebcb1b1b2a8b0eae5e49dbab0bcb4b1f3beb2b0" class="social-link" title="Email">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -736,8 +792,26 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile menu toggle - SIMPLE and RELIABLE
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            // Change icon
+            this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                menuBtn.textContent = '☰';
+            });
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -751,7 +825,7 @@
             });
         });
 
-        // Add scroll reveal animation
+        // Scroll reveal animation
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
